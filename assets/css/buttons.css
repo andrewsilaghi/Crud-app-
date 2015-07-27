@@ -1,0 +1,22 @@
+.submit{
+  width: 325px;
+  height: 56px;
+  background-color: #f3a1a1;
+  border-color: transparent;
+  border-style: solid;
+  text-transform: uppercase;
+  color: white;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.2);
+}
+.submit > a{
+  text-transform: uppercase;
+  color: white;
+text-shadow: 4px 2px 3px rgba(150, 150, 150, 0.58);
+  font-size: 28px;
+  font-weight: 600;
+}
+.buttons{
+  margin-top:100px;
+}

@@ -1,0 +1,53 @@
+.poll-header {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 4.2
+}
+.poll-question-inp {
+  float: right;
+}
+.poll-question-inp:before {
+  content: "1";
+}
+.qq:before {
+  content: "1";
+  float: left;
+  font-weight: bold;
+  font-size: 18px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  text-align: center;
+  background: #ffffff;
+  color: #f78181;
+  line-height: 1.4;
+}
+.answers {
+  float: right;
+  margin-right: 146px;
+  margin-top: 21px;
+}
+.answers:before {
+  content: "Answers:";
+  float: left;
+  margin-left: -88px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.inputs {
+  margin-right: -20px;
+  float: right;
+}
+.inputs:first-child div{
+  margin-bottom: 6px;
+}
+.ynForm{
+  margin-left: 141px;
+  padding-bottom: 45px;
+}
+.choicesForm{
+  clear: both;
+}
+.ceva{
+  width: 270px;
+}

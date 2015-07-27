@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>UI kit</title>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/input.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/dropdown.css" />
+  <link rel="stylesheet" href="assets/css/radio-buttons.css" />
+  <link rel="stylesheet" href="assets/css/buttons.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="col">
+      <form>
+        <div>
+          <input type="text" class="input-name" placeholder="Name" />
+        </div>
+        <div>
+          <input type="text" type="email" class="input-name" placeholder="email address" />
+        </div>
+      </form>
+    </div>
+    <div class="col">
+
+      <select name="altSelector">
+        <option value="1">qwe</option>
+        <option value="2" selected>ewq</option>
+      </select>
+  <select name="selector">
+    <option value="1">qweewq</option>
+  </select>
+
+    </div>
+    <form>
+      <p><input type="checkbox" id="male" /><label for="male">Checkbox</label> <br/>
+      <input type="radio" name="option" id="female" /><label for="female">Radio 1</label>
+      <input type="radio" name="option" id="female2" /><label for="female2">Radio 2</label></p>
+
+    </form>
+    <div class="buttons">
+    <button class="submit"><a>Submit</a></button>
+  </div>
+  <script src="assets/js/jquery-2.1.4.min.js"></script>
+  <script src="assets/js/plugin.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('select').selectorPlg();
+
+  });
+  </script>
+
+  <script>
+    $('input:checkbox').change(function() {
+
+      var label = $('label[for="' + $(this).attr('id') + '"]');
+
+      if ($(this).filter(":checked").length) {
+        label.addClass("checked");
+      } else {
+        label.removeClass("checked");
+      }
+    }).trigger("change");
+  </script>
+
+  </script>
+
+  </script>
+</body>
+
+</html>

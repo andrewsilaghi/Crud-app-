@@ -1,0 +1,65 @@
+.dropdown > ul {
+  display: none;
+}
+.dropdown:hover > a {
+  position: relative;
+  display: block;
+  border-style: solid;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+}
+.dropdown:hover > ul {
+  display: block;
+
+}
+.dropdown > a{
+    padding-left:50px;
+    color: #909090;
+    font-size: 18px;
+}
+.dropdown:hover{
+    background: url("../img/buton2.jpg") no-repeat ;
+    background-color: white;
+}
+.dropdown {
+  width: 330px;
+  background-color: white;
+  color: #b6adad;
+  margin-top: 100px;
+  border-style: solid;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown > a {
+  line-height: 52px;
+}
+.dropdown {
+ background: url("../img/buton.jpg") no-repeat ;
+ background-color: white;
+}
+.dropdown > ul >li>a {
+  line-height: 42px;
+  background-color: white;
+  color: #b0a6a6;
+  display: block;
+  padding: 0 26px;
+  border-bottom: 1px;
+  border-color: #eaeaea;
+  border-style: solid;
+}
+.dropdown > ul > li>a:hover {
+  border-left: 6px;
+  border-left-color: #f3a1a1;
+  border-style: solid;
+  padding: 0 20px;
+}
+.dropdown >ul >li {
+  font-size: 16px;
+}
+ul {
+  position:absolute;
+  width:330px
+}

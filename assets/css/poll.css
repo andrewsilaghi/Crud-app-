@@ -1,0 +1,22 @@
+.add-question-btn{
+    margin-left: 94px;
+    border:none;
+    padding-top: 10px;
+    padding-bottom:10px;
+    background-color: transparent;
+    outline: none;
+    color: white;
+
+}
+.object{
+  font-size: 17px;
+
+}
+.left-side{
+      margin-bottom: 8px;
+      margin-top: 8px;
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-color: #ffffff;
+      padding-top: 10px
+}
