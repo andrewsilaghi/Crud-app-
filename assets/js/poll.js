@@ -20,7 +20,7 @@ $(document).ready(function() {
   $(".add-question-btn").click(function() {
     counter++;
     counter.toString();
-    $('<div><label for="qwe">choice #' + counter + '</label><input type="text" class="input-name input-container" id="qwe" style="margin-left: 4px;"> <button class="remove-inp"   style="diplay:inline; background-color:transparent;border-color:transparent"><img style="width:20px" src="assets/img/cancel.png"></button></div>').insertBefore($(".add-question-btn"));
+    $('<div><label for="choice">choice #' + counter + '</label><input type="text" class="input-name input-container" id="choice" style="margin-left: 4px;"> <button class="remove-inp"   style="diplay:inline; background-color:transparent;border-color:transparent"><img style="width:20px" src="assets/img/cancel.png"></button></div>').insertBefore($(".add-question-btn"));
   });
   $(".choices").on("click", ".remove-inp", function() {
     $(this).parent('div').remove();
@@ -33,7 +33,7 @@ $(document).ready(function() {
     var questionObj = {};
     var questions = $(".poll-question-inp").val();
     questionObj["Questions"] = questions;
-    if ($('input[name=option]:checked', '.form').val() == "yes-no") {
+    if ($('input[name=option]:checked', '.form-choices').val() == "yes-no") {
       // var correctAnswer = $(formy :input).val();
       // console.log(correctAnswer);
       var yn = "yes/ no"
