@@ -23,13 +23,12 @@
 
       <h1 class="poll-header">ADD POLLS</h1>
       <form>
-        <div class="qq">
+        <div class="question-input">
           <input type="text" class="input-name poll-question-inp" placeholder="Question:" />
         </div>
 
-      </form>
-      <form class="form">
-        <div class="answers">
+
+        <div class="form">
           <div class="inputs">
             <div>
               <input type="radio" name="option" id="yn-form" value="yes-no" />
@@ -41,41 +40,34 @@
             </div>
           </div>
         </div>
-      </form>
-      <div class="choicesForm">
-        <div class="choices">
-          <div>
-            <label ​for="qwe">choice #1</label>
+        <div class="choicesForm">
+          <div class="choices">
+            <div>
+              <label ​for="choice1">choice #1</label>
 
-            <input type="text" class="input-name ceva" id="qwe">
+              <input type="text" class="input-name ceva" id="choice1">
+            </div>
+            <div>
+              <label for="choice2">choice #2</label>
+              <input type="text" class="input-name ceva" id="choice2">
+            </div>
+            <div>
+              <label for="qwe">choice #3</label>
+              <input type="text" class="input-name ceva" id="qwe">
+            </div>
+            <button class="add-question-btn">+Add a question</button>
           </div>
-          <div>
-            <label for="qwe">choice #2</label>
-            <input type="text" class="input-name ceva" id="qwe">
-          </div>
-          <div>
-            <label for="qwe">choice #3</label>
-            <input type="text" class="input-name ceva" id="qwe">
-          </div>
-          <button class="add-question-btn">+Add a question</button>
         </div>
-      </div>
-      <div class="ynForm visuallyhidden">
-        <form class="formy">
-          <div>
-            <input type="radio" name="ceva" id="yform" value="yes" />
-            <label for="yform">Yes</label>
-          </div>
-          <div>
-            <input type="radio" name="ceva" id="huk" value="no" />
-            <label for="huk">No</label>
-          </div>
-        </form>
-      </div>
-      <button class="submit">Submit</button>
+
+        <button class="submit" type="submit">Submit</button>
+      </form>
       <div class="polls-list">
 
       </div>
+    </div>
+
+    <div class="createdForm">
+
     </div>
 
   </div>

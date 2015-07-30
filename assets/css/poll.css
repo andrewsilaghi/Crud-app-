@@ -18,5 +18,18 @@
       border-top-style: solid;
       border-top-width: 1px;
       border-color: #ffffff;
-      padding-top: 10px
+      padding-top: 10px;
+}
+
+.input-answers{
+  width:118px;
+  background-color: transparent;
+  border-color: transparent;
+  border-style: solid;
+  color:#ffffff;
+  font-size: 19px;
+  font-weight: 400;
+}
+.list > ul > div > input[type="text"] {
+    color:#ffffff;
 }
