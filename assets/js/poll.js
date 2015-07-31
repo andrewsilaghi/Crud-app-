@@ -51,7 +51,7 @@ $(document).ready(function() {
     $(".polls-list").append('<div class="object">')
     var object = $(".object ").last();
     object.append('<div class="left-side">' + '<span >Questions</span>' + ':' + '&nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp ' + '<span><input class="question-text" readonly></span>' + '</div>');
-    $(".question-text").val(questionObj.Questions);
+    object.find(".question-text").val(questionObj.Questions);
     if ($('#m-choices').is(':checked')) {
       object.append('<div class="answers-text">' + '<span >' + 'Answers:' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + '</span>' + '</div>')
       object.append('<div class="list">')
@@ -73,12 +73,17 @@ $(document).ready(function() {
         }
         $(this).parent().append('<button class="done-editing">Done Editing !</button>')
         $(this).parent().append('<button class="cancelEdit">Cancel</button>')
+        $(".answers-element").addClass("input-edit");
         $(".question-text").attr("readonly", false);
+        $(".question-text").addClass("input-edit");
+        $(".answers-element").attr("readonly", false);
         $(".done-editing").click(function() {
           $(".answers-element").attr("readonly", true);
           $(".question-text").attr("readonly", true);
           $(this).remove();
           $(".cancelEdit").remove()
+          $(".answers-element").removeClass("input-edit");
+          $(".question-text").removeClass("input-edit");
         });
 
       });
