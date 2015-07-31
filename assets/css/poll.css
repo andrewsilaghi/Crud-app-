@@ -1,35 +1,54 @@
-.add-question-btn{
-    margin-left: 94px;
-    border:none;
-    padding-top: 10px;
-    padding-bottom:10px;
-    background-color: transparent;
-    outline: none;
-    color: white;
-
+.add-question-btn {
+  margin-left: 94px;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  outline: none;
+  color: white;
 }
-.object{
+.object {
   font-size: 17px;
-
 }
-.left-side{
-      margin-bottom: 8px;
-      margin-top: 8px;
-      border-top-style: solid;
-      border-top-width: 1px;
-      border-color: #ffffff;
-      padding-top: 10px;
+.left-side {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: #ffffff;
+  padding-top: 10px;
 }
-
-.input-answers{
-  width:118px;
+.input-answers {
+  width: 118px;
   background-color: transparent;
   border-color: transparent;
   border-style: solid;
-  color:#ffffff;
+  color: #ffffff;
   font-size: 19px;
   font-weight: 400;
 }
 .list > ul > div > input[type="text"] {
-    color:#ffffff;
+  color: #ffffff;
+}
+#choice {
+  margin-left: 4px;
+}
+.remove-input {
+  diplay: inline;
+  background-color: transparent;
+  border-color: transparent;
+}
+.answers-text {
+
+  display:inline-block;
+  vertical-align:top;
+}
+.remove{
+  display: inline-block; vertical-align: top; margin-left: 37px;background-color:transparent;border-color:transparent;
+}
+.edit{
+  display: inline-block; vertical-align: top; margin-left: 37px;background-color:transparent;border-color:transparent;
+}
+.list{
+  display:inline-block;
 }
