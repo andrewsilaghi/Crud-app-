@@ -27,6 +27,15 @@
   font-size: 19px;
   font-weight: 400;
 }
+.question-text {
+  width: 118px;
+  background-color: transparent;
+  border-color: transparent;
+  border-style: solid;
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 400;
+}
 .list > ul > div > input[type="text"] {
   color: #ffffff;
 }

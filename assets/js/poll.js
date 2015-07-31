@@ -17,7 +17,8 @@ $(document).ready(function() {
 
   var inputs = 1;
   var counter = 3;
-  $(".add-question-btn").click(function() {
+  $(".add-question-btn").click(function(e) {
+    e.preventDefault();
     counter++;
     counter.toString();
     $('<div><label for="choice">choice #' + counter + '</label><input type="text" class="input-name input-container" id="choice" > <button class="remove-input"><img style="width:20px" src="assets/img/cancel.png"></button></div>').insertBefore($(".add-question-btn"));
@@ -67,14 +68,19 @@ $(document).ready(function() {
 
       });
       $(".edit").on("click", function() {
-        $(".list").append('<button class="done-editing">Done Editing !</button>')
-        $(".answers-element").attr("readonly", false);
+        if ($(this).parent().find(".done-editing").length  ){
+          return;
+        }
+        $(this).parent().append('<button class="done-editing">Done Editing !</button>')
+        $(this).parent().append('<button class="cancelEdit">Cancel</button>')
         $(".question-text").attr("readonly", false);
         $(".done-editing").click(function() {
           $(".answers-element").attr("readonly", true);
-          $(".question-title").attr("readonly", true);
+          $(".question-text").attr("readonly", true);
           $(this).remove();
+          $(".cancelEdit").remove()
         });
+
       });
     } else {
       object.append('<div class="answers-text">' + '<span ">' + 'Answers:' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + questionObj.answers + '</span>' + '</div>')
@@ -85,14 +91,19 @@ $(document).ready(function() {
       });
 
       $(".edit").on("click", function() {
-        $(".object").append('<button class="done-editing">Done Editing !</button>')
-        $(".object").append('<button class="cancelEdit">Cancel</button>')
+        if ($(this).parent().find(".done-editing").length  ){
+          return;
+        }
+        $(this).parent().append('<button class="done-editing">Done Editing !</button>')
+        $(this).parent().append('<button class="cancelEdit">Cancel</button>')
         $(".question-text").attr("readonly", false);
         $(".done-editing").click(function() {
           $(".answers-element").attr("readonly", true);
           $(".question-text").attr("readonly", true);
           $(this).remove();
+          $(".cancelEdit").remove()
         });
+
       });
 
     }
