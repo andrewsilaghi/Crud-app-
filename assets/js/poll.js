@@ -62,51 +62,62 @@ $(document).ready(function() {
     object.find(".question-text").val(questionObj.Questions);
 
 
-  function editYesNo (){
-    $(".edit").on("click", function() {
-      if ($(this).parent().find(".done-editing").length) {
-        return;
-      }
-      $(this).parent().append('<button class="done-editing">Done Editing !</button>')
-      $(this).parent().append('<button class="cancelEdit">Cancel</button>')
-      $(".question-text").attr("readonly", false);
-      $(".done-editing").click(function() {
-        $(".answers-element").attr("readonly", true);
-        $(".question-text").attr("readonly", true);
-        $(this).remove();
-        $(".cancelEdit").remove()
+    function editYesNo() {
+      $(".edit").on("click", function() {
+        if ($(this).parent().find(".done-editing").length) {
+          return;
+        }
+        $(this).parent().append('<button class="done-editing">Done Editing !</button>')
+        $(this).parent().append('<button class="cancelEdit">Cancel</button>')
+        $(".question-text").attr("readonly", false);
+        $(".done-editing").click(function() {
+          $(".answers-element").attr("readonly", true);
+          $(".question-text").attr("readonly", true);
+          $(this).remove();
+          $(".cancelEdit").remove()
+        });
+
       });
-
-    });
-  }
-
-
-
-function edit(){
-  $(".edit").on("click", function() {
-    if ($(this).parent().find(".done-editing").length) {
-      return;
     }
-    $(this).parent().append('<button class="done-editing">Done Editing !</button>')
-    $(this).parent().append('<button class="cancelEdit">Cancel</button>')
-    $(".answers-element").addClass("input-edit");
-    $(".question-text").attr("readonly", false);
-    $(".question-text").addClass("input-edit");
-    $(".answers-element").attr("readonly", false);
-    $(".done-editing").click(function() {
-      $(".answers-element").attr("readonly", true);
-      $(".question-text").attr("readonly", true);
-      $(this).remove();
-      $(".cancelEdit").remove()
-      $(".answers-element").removeClass("input-edit");
-      $(".question-text").removeClass("input-edit");
-    });
-
-  });
-}
 
 
 
+    function edit() {
+      $(".edit").on("click", function() {
+        if ($(this).parent().find(".done-editing").length) {
+          return;
+        }
+        $(this).parent().append('<button class="done-editing">Done Editing !</button>')
+        $(this).parent().append('<button class="cancelEdit">Cancel</button>')
+        $(".answers-element").addClass("input-edit");
+        $(".question-text").attr("readonly", false);
+        $(".question-text").addClass("input-edit");
+        $(".answers-element").attr("readonly", false);
+        $(".done-editing").click(function() {
+          $(".answers-element").attr("readonly", true);
+          $(".question-text").attr("readonly", true);
+          $(this).remove();
+          $(".cancelEdit").remove()
+          $(".answers-element").removeClass("input-edit");
+          $(".question-text").removeClass("input-edit");
+        });
+
+      });
+    }
+
+
+
+    function removefn() {
+      $(".remove").on("click", function() {
+        $(this).parents('.object').remove();
+      });
+    }
+
+
+    function appendRemoveEditBtns() {
+      object.append('<button class="remove"><img style="width:20px" src="assets/img/cancel.png"></button>');
+      object.append('<button class="edit"><img style="width:20px" src="assets/img/edit.png"></button>');
+    }
 
 
     if ($('#m-choices').is(':checked')) {
@@ -116,24 +127,14 @@ function edit(){
       $.each(choices, function(index, value) {
         object.find('ul').append('<div><input class="answers-element input-answers" readonly value="' + questionObj["Answers"][index] + ' "></div>');
       });
-
-
-      object.append('<button class="remove"><img style="width:20px" src="assets/img/cancel.png"></button>');
-      object.append('<button class="edit"><img style="width:20px" src="assets/img/edit.png"></button>');
-      $(".remove").on("click", function() {
-        $(this).parents('.object').remove();
-
-      });
-    edit();
+      appendRemoveEditBtns();
+      removefn();
+      edit();
     } else {
       object.append('<div class="answers-text">' + '<span ">' + 'Answers:' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + questionObj.answers + '</span>' + '</div>')
-      object.append('<button class="remove"><img style="width:20px" src="assets/img/cancel.png"></button>');
-      object.append('<button class="edit" ><img style="width:20px" src="assets/img/edit.png"></button>');
-      $(".remove").on("click", function() {
-        $(this).parents('.object').remove();
-      });
-
-        editYesNo();
+      appendRemoveEditBtns();
+      removefn();
+      editYesNo();
     }
   });
 
