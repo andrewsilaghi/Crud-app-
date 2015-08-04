@@ -39,9 +39,6 @@
 .list > ul > div > input[type="text"] {
   color: #ffffff;
 }
-#choice {
-  margin-left: 4px;
-}
 .remove-input {
   diplay: inline;
   background-color: transparent;

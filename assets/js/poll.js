@@ -1,6 +1,5 @@
 $(document).ready(function() {
   'use strict';
-
   var choicesField = $(".choices").clone();
   var choiceForm = $(".choicesForm").clone();
   $(".inputs input[type=radio]").on("click", function() {
@@ -21,10 +20,17 @@ $(document).ready(function() {
     e.preventDefault();
     counter++;
     counter.toString();
-    $('<div><label for="choice">choice #' + counter + '</label><input type="text" class="input-name input-container" id="choice" > <button class="remove-input"><img style="width:20px" src="assets/img/cancel.png"></button></div>').insertBefore($(".add-question-btn"));
+    var tpl = $('#choices-tpl').html();
+    var obj = {
+      counter: counter
+    };
+    var output = Mustache.render(tpl, obj);
+    $(".add-question-btn").before(output);
   });
-  $(".choices").on("click", ".remove-inp", function() {
-    $(this).parent('div').remove();
+  $(".choices").on("click", ".remove-input", function(e) {
+    e.preventDefault();
+  $(this).parent('div').remove();
+    counter--;
     counter--;
   });
   var questionObj = {};
@@ -58,7 +64,11 @@ $(document).ready(function() {
     console.log(questionObjectsArray);
     $(".polls-list").append('<div class="object">')
     var object = $(".object ").last();
-    object.append('<div class="left-side">' + '<span >Questions</span>' + ':' + '&nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp ' + '<span><input class="question-text" readonly></span>' + '</div>');
+    var tplQuestion = $('#questiontpl').html();
+    var objQuestion = {
+    };
+    var outputQuestion = Mustache.render(tplQuestion, objQuestion);
+    object.append(outputQuestion);
     object.find(".question-text").val(questionObj.Questions);
 
 
