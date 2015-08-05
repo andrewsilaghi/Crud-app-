@@ -24,7 +24,7 @@
       <h1 class="poll-header">ADD POLLS</h1>
       <form>
         <div class="question-input">
-          <input type="text" class="input-name poll-question-inp" placeholder="Question:" />
+          <input type="text" class="input-name poll-question-inp" id="question-input" placeholder="Question:" />
         </div>
 
 
@@ -74,7 +74,7 @@
 
 
 
-  <script id="choices-tpl" type="template/mustache">
+  <script id="choices-tpl" type="template/choice-input">
     <div>
       <label for="choice">choice #{{counter}}</label>
       <input type="text" class="input-name input-container" id="choice">
@@ -84,12 +84,33 @@
     </div>
   </script>
 
-  <script id="questiontpl" type="templat/question">
+  <script id="question-tpl" type="templat/question">
+  <div class="object">
     <div class="left-side">
-      <span> Questions </span>: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <span> Questions </span>: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
       <span>
-        <input class="question-text" readonly>
-      </span></div>
+        <input class="question-text" readonly="" value="{{value}}">
+      </span>
+    </div>
+    <div class="answers-text">
+      <span>Answers:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
+    </div>
+    <div class="list">
+      <ul>
+        <li>
+          <input class="answers-element input-answers" readonly="" value="">
+        </li>
+      </ul>
+    </div>
+    <button class="remove">
+      <img style="width:20px" src="assets/img/cancel.png">
+    </button>
+    <button class="edit">
+      <img style="width:20px" src="assets/img/edit.png">
+    </button>
+  </script>
+  <script id="done-btn">
+    <button class="done-editing">Done Editing ! </button>
   </script>
 
   <script src="assets/js/jquery-2.1.4.min.js"></script>
