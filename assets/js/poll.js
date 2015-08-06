@@ -32,73 +32,83 @@ $(document).ready(function() {
     counter--;
   });
 
+
   var questionArray = [];
   $(".submit").on("click", function(e) {
     e.preventDefault();
+    if ($("input[name=option]:checked").val() == "yes-no") {
 
-    var questionObj = {
-      question: $("#question-input").val(),
-      choices: [],
-
-    };
-
-    $(".choices input").each(function() {
-      questionObj.choices.push($(this).val())
-    });
-    var questionTpl = $("#question-tpl").html();
-    var questionCeva = {
-      value: questionObj.question,
-    }
-    var outputQuestion = Mustache.render(questionTpl, questionCeva);
-    var answerTpl = $("#answer-tpl").html();
-    $(".polls-list").append(outputQuestion);
-
-    $.each(questionObj.choices, function(index, value){
-      var answerObj = {
-        answerstext: value,
+      var questionTplYesNo = $("#answer-tpl-yes-no").html();
+      var questionYesNo = {
+        value:"Yes/no",
       }
-      var outputAnswer = Mustache.render(answerTpl, answerObj);
-      console.log(outputAnswer);
-      var object = $(".object").last();
-      object.find(".list").append(outputAnswer)
-    });
-    function removefn() {
-          $(".remove").on("click", function() {
-            $(this).parents('.object').remove();
-          });
+      var outputQuestionYesNo = Mustache.render(questionTplYesNo, questionYesNo);
+      console.log(outputQuestionYesNo);
+    } else {
+
+
+      var questionObj = {
+        question: $("#question-input").val(),
+        choices: [],
+
+      };
+
+      $(".choices input").each(function() {
+        questionObj.choices.push($(this).val())
+      });
+      var questionTpl = $("#question-tpl").html();
+      var questionCeva = {
+        value: questionObj.question,
+      }
+      var outputQuestion = Mustache.render(questionTpl, questionCeva);
+      var answerTpl = $("#answer-tpl").html();
+      $(".polls-list").append(outputQuestion);
+
+      $.each(questionObj.choices, function(index, value) {
+        var answerObj = {
+          answerstext: value,
         }
+        var outputAnswer = Mustache.render(answerTpl, answerObj);
+        console.log(outputAnswer);
+        var object = $(".object").last();
+        object.find(".list").append(outputAnswer)
+      });
 
-        removefn();
+      function removefn() {
+        $(".remove").on("click", function() {
+          $(this).parents('.object').remove();
+        });
+      }
 
-        function edit() {
-          $(".edit").on("click", function() {
-            if ($(this).parent().find(".done-editing").length) {
-              return;
-            }
-            $(this).parent().append('<button class="done-editing">Done Editing !</button>')
-            $(this).parent().append('<button class="cancelEdit">Cancel</button>')
-            $(".answers-element").addClass("input-edit");
-            $(".question-text").attr("readonly", false);
-            $(".question-text").addClass("input-edit");
-            $(".answers-element").attr("readonly", false);
-            $(".done-editing").click(function() {
-              $(".answers-element").attr("readonly", true);
-              $(".question-text").attr("readonly", true);
-              $(this).remove();
-              $(".cancelEdit").remove()
-              $(".answers-element").removeClass("input-edit");
-              $(".question-text").removeClass("input-edit");
-            });
+      removefn();
 
+      function edit() {
+        $(".edit").on("click", function() {
+          if ($(this).parent().find(".done-editing").length) {
+            return;
+          }
+          $(this).parent().append('<button class="done-editing">Done Editing !</button>')
+          $(this).parent().append('<button class="cancelEdit">Cancel</button>')
+          $(".answers-element").addClass("input-edit");
+          $(".question-text").attr("readonly", false);
+          $(".question-text").addClass("input-edit");
+          $(".answers-element").attr("readonly", false);
+          $(".done-editing").click(function() {
+            $(".answers-element").attr("readonly", true);
+            $(".question-text").attr("readonly", true);
+            $(this).remove();
+            $(".cancelEdit").remove()
+            $(".answers-element").removeClass("input-edit");
+            $(".question-text").removeClass("input-edit");
           });
-        }
 
-        edit()
+        });
+      }
 
+      edit()
+
+    }
   });
-
-
-
 
 
 
@@ -161,28 +171,28 @@ $(document).ready(function() {
   //
   //
   //
-      function edit() {
-        $(".edit").on("click", function() {
-          if ($(this).parent().find(".done-editing").length) {
-            return;
-          }
-          $(this).parent().append('<button class="done-editing">Done Editing !</button>')
-          $(this).parent().append('<button class="cancelEdit">Cancel</button>')
-          $(".answers-element").addClass("input-edit");
-          $(".question-text").attr("readonly", false);
-          $(".question-text").addClass("input-edit");
-          $(".answers-element").attr("readonly", false);
-          $(".done-editing").click(function() {
-            $(".answers-element").attr("readonly", true);
-            $(".question-text").attr("readonly", true);
-            $(this).remove();
-            $(".cancelEdit").remove()
-            $(".answers-element").removeClass("input-edit");
-            $(".question-text").removeClass("input-edit");
-          });
-
-        });
+  function edit() {
+    $(".edit").on("click", function() {
+      if ($(this).parent().find(".done-editing").length) {
+        return;
       }
+      $(this).parent().append('<button class="done-editing">Done Editing !</button>')
+      $(this).parent().append('<button class="cancelEdit">Cancel</button>')
+      $(".answers-element").addClass("input-edit");
+      $(".question-text").attr("readonly", false);
+      $(".question-text").addClass("input-edit");
+      $(".answers-element").attr("readonly", false);
+      $(".done-editing").click(function() {
+        $(".answers-element").attr("readonly", true);
+        $(".question-text").attr("readonly", true);
+        $(this).remove();
+        $(".cancelEdit").remove()
+        $(".answers-element").removeClass("input-edit");
+        $(".question-text").removeClass("input-edit");
+      });
+
+    });
+  }
 
   //
   //
