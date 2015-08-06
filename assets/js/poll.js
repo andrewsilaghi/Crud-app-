@@ -59,13 +59,43 @@ $(document).ready(function() {
       }
       var outputAnswer = Mustache.render(answerTpl, answerObj);
       console.log(outputAnswer);
-      $(".list").append(outputAnswer)
+      var object = $(".object").last();
+      object.find(".list").append(outputAnswer)
     });
+    function removefn() {
+          $(".remove").on("click", function() {
+            $(this).parents('.object').remove();
+          });
+        }
+
+        removefn();
+
+        function edit() {
+          $(".edit").on("click", function() {
+            if ($(this).parent().find(".done-editing").length) {
+              return;
+            }
+            $(this).parent().append('<button class="done-editing">Done Editing !</button>')
+            $(this).parent().append('<button class="cancelEdit">Cancel</button>')
+            $(".answers-element").addClass("input-edit");
+            $(".question-text").attr("readonly", false);
+            $(".question-text").addClass("input-edit");
+            $(".answers-element").attr("readonly", false);
+            $(".done-editing").click(function() {
+              $(".answers-element").attr("readonly", true);
+              $(".question-text").attr("readonly", true);
+              $(this).remove();
+              $(".cancelEdit").remove()
+              $(".answers-element").removeClass("input-edit");
+              $(".question-text").removeClass("input-edit");
+            });
+
+          });
+        }
+
+        edit()
 
   });
-
-
-
 
 
 
@@ -102,7 +132,7 @@ $(document).ready(function() {
   //     console.log(choices);
   //     console.log(questionObjectsArray);
   //     $(".polls-list").append('<div class="object">')
-  //     var object = $(".object ").last();
+  // var object = $(".object ").last();
   //     var tplQuestion = $('#questiontpl').html();
   //     var objQuestion = {
   //     };
@@ -131,29 +161,29 @@ $(document).ready(function() {
   //
   //
   //
-  //     function edit() {
-  //       $(".edit").on("click", function() {
-  //         if ($(this).parent().find(".done-editing").length) {
-  //           return;
-  //         }
-  //         $(this).parent().append('<button class="done-editing">Done Editing !</button>')
-  //         $(this).parent().append('<button class="cancelEdit">Cancel</button>')
-  //         $(".answers-element").addClass("input-edit");
-  //         $(".question-text").attr("readonly", false);
-  //         $(".question-text").addClass("input-edit");
-  //         $(".answers-element").attr("readonly", false);
-  //         $(".done-editing").click(function() {
-  //           $(".answers-element").attr("readonly", true);
-  //           $(".question-text").attr("readonly", true);
-  //           $(this).remove();
-  //           $(".cancelEdit").remove()
-  //           $(".answers-element").removeClass("input-edit");
-  //           $(".question-text").removeClass("input-edit");
-  //         });
-  //
-  //       });
-  //     }
-  //
+      function edit() {
+        $(".edit").on("click", function() {
+          if ($(this).parent().find(".done-editing").length) {
+            return;
+          }
+          $(this).parent().append('<button class="done-editing">Done Editing !</button>')
+          $(this).parent().append('<button class="cancelEdit">Cancel</button>')
+          $(".answers-element").addClass("input-edit");
+          $(".question-text").attr("readonly", false);
+          $(".question-text").addClass("input-edit");
+          $(".answers-element").attr("readonly", false);
+          $(".done-editing").click(function() {
+            $(".answers-element").attr("readonly", true);
+            $(".question-text").attr("readonly", true);
+            $(this).remove();
+            $(".cancelEdit").remove()
+            $(".answers-element").removeClass("input-edit");
+            $(".question-text").removeClass("input-edit");
+          });
+
+        });
+      }
+
   //
   //
   //     function removefn() {
