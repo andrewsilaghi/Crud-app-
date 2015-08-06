@@ -35,21 +35,33 @@ $(document).ready(function() {
   var questionArray = [];
   $(".submit").on("click", function(e) {
     e.preventDefault();
+
     var questionObj = {
       question: $("#question-input").val(),
       choices: [],
+
     };
-      $(".choices input").each(function() {
-        questionObj.choices.push($(this).val())
-      });
-      var questionTpl = $("#question-tpl").html();
-      var questionCeva = {
-        value: questionObj.question,
+
+    $(".choices input").each(function() {
+      questionObj.choices.push($(this).val())
+    });
+    var questionTpl = $("#question-tpl").html();
+    var questionCeva = {
+      value: questionObj.question,
+    }
+    var outputQuestion = Mustache.render(questionTpl, questionCeva);
+    var answerTpl = $("#answer-tpl").html();
+    $(".polls-list").append(outputQuestion);
+
+    $.each(questionObj.choices, function(index, value){
+      var answerObj = {
+        answerstext: value,
       }
-      var outputQuestion = Mustache.render(questionTpl, questionCeva);
-      console.log(outputQuestion);
-      $(".polls-list").append(outputQuestion);
-    console.log(questionObj);
+      var outputAnswer = Mustache.render(answerTpl, answerObj);
+      console.log(outputAnswer);
+      $(".list").append(outputAnswer)
+    });
+
   });
 
 

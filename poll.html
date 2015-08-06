@@ -85,32 +85,39 @@
   </script>
 
   <script id="question-tpl" type="templat/question">
-  <div class="object">
-    <div class="left-side">
-      <span> Questions </span>: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <span>
-        <input class="question-text" readonly="" value="{{value}}">
-      </span>
-    </div>
-    <div class="answers-text">
-      <span>Answers:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
-    </div>
-    <div class="list">
+    <div class="object">
+      <div class="left-side">
+        <span> Questions </span>: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <span>
+          <input class="question-text" readonly="" value="{{value}}">
+        </span>
+      </div>
+      <div class="answers-text">
+        <span>Answers:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
+      </div>
+      <div class="list">
       <ul>
-        <li>
-          <input class="answers-element input-answers" readonly="" value="">
-        </li>
-      </ul>
-    </div>
-    <button class="remove">
-      <img style="width:20px" src="assets/img/cancel.png">
-    </button>
-    <button class="edit">
-      <img style="width:20px" src="assets/img/edit.png">
-    </button>
+        {{listItems}}
+        </ul>
+      </div>
+      <button class="remove">
+        <img style="width:20px" src="assets/img/cancel.png">
+      </button>
+      <button class="edit">
+        <img style="width:20px" src="assets/img/edit.png">
+      </button>
   </script>
+
+  <script id="answer-tpl">
+      <li style="list-style:none">
+      <input class = "answers-element input-answers"
+    readonly = ""
+    value = "{{answerstext}}" >
+      </li>
+  </script>
+
   <script id="done-btn">
-    <button class="done-editing">Done Editing ! </button>
+    < button class = "done-editing" > Done Editing! < /button>
   </script>
 
   <script src="assets/js/jquery-2.1.4.min.js"></script>
